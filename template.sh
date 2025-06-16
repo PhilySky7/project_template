@@ -153,24 +153,18 @@ cat > Makefile << EOF
 
 help:
 	@echo "Available commands:"
-	@echo "  install  - Create venv, install dependencies, init repo"
-	@echo "  activate - Activate virtual environment"
+	@echo "  install  - Install dependencies"
 	@echo "  run      - Run the application"
 	@echo "  test     - Run tests"
 
 install:
-	uv venv
-	uv pip install -r requirements.txt
-	git init
-
-activate:
-	source .venv/bin/activate
+	pip3 install -r requirements.txt
 
 run:
 	python3 src/main.py
 
 test:
-	python3 -m pytest tests/ -v
+	pytest tests/ -v
 EOF
 
 echo "✅ Project initialization complete!"
